@@ -1,6 +1,7 @@
 "use client";
 
 import { CheckCircle, Phone, Wrench } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 interface ServiceDetailProps {
   onNavigate?: (page: 'home' | 'about' | 'services' | 'service-detail' | 'experience' | 'blog' | 'contact' | 'booking', serviceTitle?: string) => void;
@@ -19,6 +20,8 @@ interface ServiceDetailProps {
 }
 
 function ServiceDetailPage() {
+  const router = useRouter();
+
   // Default service data for demonstration
   const serviceData = {
     icon: Wrench,
@@ -132,7 +135,7 @@ function ServiceDetailPage() {
 
                 <button 
                   className="relative group"
-                  onClick={() => console.log('Navigate to contact')}
+                  onClick={() => router.push('/contact')}
                 >
                   <div className="relative h-14 px-10 flex items-center justify-center cursor-pointer">
                     <div className="absolute inset-0 bg-blue-900 hover:bg-blue-800 transition-colors transform -skew-x-12"></div>
@@ -146,7 +149,7 @@ function ServiceDetailPage() {
               <>
                 <button 
                   className="relative group"
-                  onClick={() => console.log('Navigate to booking')}
+                  onClick={() => router.push('/booking')}
                 >
                   <div className="relative h-14 px-10 flex items-center justify-center cursor-pointer">
                     <div className="absolute inset-0 bg-blue-900 hover:bg-blue-800 transition-colors transform -skew-x-12"></div>

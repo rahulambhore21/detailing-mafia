@@ -17,8 +17,11 @@ import {
   Phone
 } from 'lucide-react';
 import { ImageWithFallback } from '../../components/imageWIthFallback';
+import { useRouter } from 'next/navigation';
 
 function ServicesPage() {
+  const router = useRouter();
+
   const services = [
     {
       icon: Gauge,
@@ -230,7 +233,7 @@ function ServicesPage() {
                     {/* Learn More Button */}
                     <button 
                       className="relative w-full group/btn"
-                      onClick={() => console.log('Navigate to service detail:', service.title)}
+                      onClick={() => router.push('/service')}
                     >
                       <div className="relative h-10 flex items-center justify-center cursor-pointer">
                         <div className="absolute inset-0 bg-blue-900 group-hover/btn:bg-blue-800 transition-colors transform -skew-x-12"></div>
@@ -260,7 +263,7 @@ function ServicesPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
             <button 
               className="relative group"
-              onClick={() => console.log('Navigate to booking')}
+              onClick={() => router.push('/booking')}
             >
               <div className="relative h-14 px-10 flex items-center justify-center cursor-pointer">
                 <div className="absolute inset-0 bg-blue-900 hover:bg-blue-800 transition-colors transform -skew-x-12"></div>

@@ -2,9 +2,9 @@
 
 import { ChevronRight, Shield, Award, Users } from "lucide-react";
 import { Button } from "./ui/button";
+import { useRouter } from "next/navigation";
 
 interface HeroProps {
-  onNavigate?: (page: 'home' | 'about' | 'services' | 'service-detail' | 'experience' | 'blog' | 'contact' | 'booking', serviceTitle?: string) => void;
   title?: string;
   subtitle?: string;
   description?: string;
@@ -13,13 +13,14 @@ interface HeroProps {
 }
 
 export function Hero({ 
-  onNavigate, 
   title = "Your Trusted Auto Care Experts",
   subtitle = "Professional Automotive Service",
   description = "Professional automotive service and repair with certified mechanics. Quality workmanship, affordable pricing, and guaranteed satisfaction.",
   showStats = true,
   showButtons = true 
 }: HeroProps) {
+  const router = useRouter();
+
   return (
     <section className="relative min-h-screen flex items-center pt-32 pb-20">
       {/* Background video with overlay */}
@@ -64,7 +65,7 @@ export function Hero({
             {showButtons && (
               <div className="flex flex-wrap gap-4 mb-12">
                 <Button
-                  onClick={() => onNavigate?.('booking')}
+                  onClick={() => router.push('/booking')}
                   className="bg-blue-900 hover:bg-blue-800 text-white px-8 py-6 text-lg"
                 >
                   Book Appointment
@@ -72,7 +73,7 @@ export function Hero({
                 </Button>
                 <Button
                   variant="outline"
-                  onClick={() => onNavigate?.('services')}
+                  onClick={() => router.push('/services')}
                   className="border-white text-black hover:bg-white hover:text-black px-8 py-6 text-lg"
                 >
                   View Services

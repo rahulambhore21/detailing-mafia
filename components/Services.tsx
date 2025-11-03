@@ -4,6 +4,7 @@ import { Sparkles, Droplets, Shield, Car, Paintbrush, Sun } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { ImageWithFallback } from './imageWIthFallback';
+import { useRouter } from 'next/navigation';
 
 const services = [
   {
@@ -37,6 +38,8 @@ const services = [
 ];
 
 export function Services() {
+  const router = useRouter();
+
   return (
     <section id="services" className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4">
@@ -78,7 +81,10 @@ export function Services() {
                     </li>
                   ))}
                 </ul>
-                <Button className="w-full bg-blue-900 hover:bg-blue-800 text-white">
+                <Button 
+                  className="w-full bg-blue-900 hover:bg-blue-800 text-white"
+                  onClick={() => router.push('/service')}
+                >
                   Learn More
                 </Button>
               </CardContent>
@@ -87,7 +93,10 @@ export function Services() {
         </div>
 
         <div className="text-center mt-12">
-          <Button className="bg-blue-900 hover:bg-blue-800 text-white px-8 py-6 text-lg">
+          <Button 
+            className="bg-blue-900 hover:bg-blue-800 text-white px-8 py-6 text-lg"
+            onClick={() => router.push('/services')}
+          >
             View All Services
           </Button>
         </div>
