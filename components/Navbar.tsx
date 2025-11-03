@@ -113,14 +113,14 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
     >
       {/* Outer rhombus */}
       <div
-        className={`relative w-24 h-12 flex items-center justify-center transition-all duration-300 transform -skew-x-12 ${
+        className={`relative w-24 h-12 flex items-center justify-center transition-all duration-300 rhombus-btn ${
           currentPage === item.key
             ? "bg-blue-800"
             : "bg-blue-900 group-hover:bg-blue-800"
         }`}
       >
         {/* Text */}
-        <span className="absolute transform skew-x-12 text-white font-medium text-sm select-none">
+        <span className="absolute text-white font-medium text-sm select-none">
           {item.label}
         </span>
       </div>

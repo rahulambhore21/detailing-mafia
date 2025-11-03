@@ -41,8 +41,8 @@ export function Hero({
             }}
           />
         </video>
-        <div className="absolute inset-0 z-10 bg-black/60"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/50 pointer-events-none"></div>
+        <div className="absolute inset-0 z-10 bg-black/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/20 to-black/50 pointer-events-none"></div>
       </div>
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 w-full">
