@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { ImageWithFallback } from '../../components/imageWIthFallback';
 import { useRouter } from 'next/navigation';
+import { titleToSlug } from '../../lib/utils';
 
 function ServicesPage() {
   const router = useRouter();
@@ -233,7 +234,7 @@ function ServicesPage() {
                     {/* Learn More Button */}
                     <button 
                       className="relative w-full group/btn"
-                      onClick={() => router.push('/service')}
+                      onClick={() => router.push(`/service/${titleToSlug(service.title)}`)}
                     >
                       <div className="relative h-10 flex items-center justify-center cursor-pointer">
                         <div className="absolute inset-0 bg-blue-900 group-hover/btn:bg-blue-800 transition-colors transform -skew-x-12"></div>

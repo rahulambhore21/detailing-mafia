@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/
 import { Button } from './ui/button';
 import { ImageWithFallback } from './imageWIthFallback';
 import { useRouter } from 'next/navigation';
+import { titleToSlug } from '../lib/utils';
 
 const services = [
   {
@@ -83,7 +84,7 @@ export function Services() {
                 </ul>
                 <Button 
                   className="w-full bg-blue-900 hover:bg-blue-800 text-white"
-                  onClick={() => router.push('/service')}
+                  onClick={() => router.push(`/service/${titleToSlug(service.title)}`)}
                 >
                   Learn More
                 </Button>

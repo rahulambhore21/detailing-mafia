@@ -96,7 +96,8 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center gap-5">
+      {/* Desktop Menu */}
+<div className="hidden lg:flex items-center gap-5">
   {[
     { label: "Home", key: "home" },
     { label: "About", key: "about" },
@@ -108,24 +109,25 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
     <div
       key={item.key}
       className="relative cursor-pointer group"
-      onClick={() => onNavigate(item.key)}
+      onClick={() => onNavigate(item.key as any)}
     >
       {/* Outer rhombus */}
       <div
-        className={`relative w-20 h-20 flex items-center justify-center transition-all duration-300 transform rotate-45 ${
+        className={`relative w-24 h-12 flex items-center justify-center transition-all duration-300 transform -skew-x-12 ${
           currentPage === item.key
             ? "bg-blue-800"
             : "bg-blue-900 group-hover:bg-blue-800"
         }`}
       >
         {/* Text */}
-        <span className="absolute transform -rotate-45 text-white font-medium text-sm select-none">
+        <span className="absolute transform skew-x-12 text-white font-medium text-sm select-none">
           {item.label}
         </span>
       </div>
     </div>
   ))}
 </div>
+
 
 
           {/* Mobile Menu Button */}
