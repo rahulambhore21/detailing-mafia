@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { Calendar as CalendarIcon, Clock, Car, Truck, Check, CheckCircle } from 'lucide-react';
 import { Calendar } from '../../components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '../../components/ui/popover';
@@ -13,6 +14,7 @@ import {
 } from '../../components/ui/select';
 
 function BookingPage() {
+  const router = useRouter();
   const [date, setDate] = useState<Date | undefined>(undefined);
   const [showAlert, setShowAlert] = useState(false);
   const [formData, setFormData] = useState({
@@ -34,13 +36,19 @@ function BookingPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Booking submitted:', { ...formData, date });
-    // Show the success alert
-    setShowAlert(true);
-    // Auto-hide notification after 8 seconds
-    setTimeout(() => {
-      setShowAlert(false);
-    }, 8000);
+    
+    // Validate required fields
+    if (!formData.fullName || !formData.phone || !formData.vehicleType || 
+        !formData.vehicleNumber || !formData.serviceType || !formData.timeSlot || !date) {
+      alert('Please fill in all required fields');
+      return;
+    }
+    
+    console.log('Booking data:', { ...formData, date });
+    
+    // In a real app, you would save this data to context/state management
+    // For now, we'll navigate to checkout
+    router.push('/checkout');
   };
 
   const vehicleTypes = [
@@ -368,7 +376,7 @@ function BookingPage() {
                         <div className="absolute inset-0 bg-blue-900 group-hover:bg-blue-800 transition-colors transform -skew-x-12"></div>
                         <span className="relative z-10 text-white uppercase tracking-wide flex items-center gap-2">
                           <Check className="w-5 h-5" />
-                          Confirm Appointment
+                          Continue to Checkout
                         </span>
                       </div>
                     </button>

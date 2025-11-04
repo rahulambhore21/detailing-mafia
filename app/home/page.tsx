@@ -1,7 +1,6 @@
 import { Hero } from '../../components/Hero';
 import { Services } from '../../components/Services';
 import { FeatureCard } from '../../components/FeatureCard';
-import { TestimonialCard } from '../../components/TestimonialCard';
 import { Shield, Clock, Award } from 'lucide-react';
 
 const features = [
