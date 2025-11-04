@@ -1,6 +1,5 @@
 import { Hero } from '../components/Hero';
 import { FeatureCard } from '../components/FeatureCard';
-import { TestimonialCard } from '../components/TestimonialCard';
 import { Shield, Clock, Award } from 'lucide-react';
 import { Skiper52 } from '@/components/ui/skiper-ui/skiper52';
 import Image from 'next/image';
