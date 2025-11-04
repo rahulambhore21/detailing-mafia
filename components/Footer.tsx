@@ -10,7 +10,7 @@ export function Footer({ onNavigate }: FooterProps) {
       <div className="max-w-7xl mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Company info */}
-          <div>
+        <div>
             <div className="text-2xl mb-4">
               SHRI KRISHNA <span className="text-blue-900">AUTOMOBILE</span>
             </div>

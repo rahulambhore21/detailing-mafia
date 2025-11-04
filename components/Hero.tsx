@@ -15,9 +15,9 @@ interface HeroProps {
 export function Hero({ 
   title = "Your Trusted Auto Care Experts",
   subtitle = "Professional Automotive Service",
-  description = "Professional automotive service and repair with certified mechanics. Quality workmanship, affordable pricing, and guaranteed satisfaction.",
-  showStats = true,
-  showButtons = true 
+  // description = "Professional automotive service and repair with certified mechanics. Quality workmanship, affordable pricing, and guaranteed satisfaction.",
+  // showStats = true,
+  // showButtons = true 
 }: HeroProps) {
   const router = useRouter();
 
@@ -44,15 +44,17 @@ export function Hero({
         <div className="absolute inset-0 z-10 bg-black/50"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/20 to-black/50 pointer-events-none"></div>
       </div>
+      <div>
+      </div>
 
       <div className="relative z-20 max-w-7xl mx-auto px-4 w-full">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="text-white">
-            <div className="inline-block bg-blue-900 px-4 py-2 rounded-full mb-6">
+            {/* <div className="inline-block bg-blue-900 px-4 py-2 rounded-full mb-6">
               <span className="text-sm">{subtitle}</span>
-            </div>
+            </div> */}
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl mb-6">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl mb-6 font2">
               {title.includes('Auto Care Experts') ? (
                 <>Your Trusted <span className="text-blue-900">Auto Care Experts</span></>
               ) : (
@@ -60,9 +62,9 @@ export function Hero({
               )}
             </h1>
 
-            <p className="text-xl text-gray-300 mb-8">{description}</p>
+            {/* <p className="text-xl text-gray-300 mb-8">{description}</p> */}
 
-            {showButtons && (
+            {/* {showButtons && (
               <div className="flex flex-wrap gap-4 mb-12">
                 <Button
                   onClick={() => router.push('/booking')}
@@ -79,9 +81,9 @@ export function Hero({
                   View Services
                 </Button>
               </div>
-            )}
+            )} */}
 
-            {showStats && (
+            {/* {showStats && (
               <div className="grid grid-cols-3 gap-8">
                 <div className="text-center">
                   <div className="flex items-center justify-center mb-2">
@@ -105,7 +107,7 @@ export function Hero({
                   <div className="text-sm text-gray-400">Satisfaction Rate</div>
                 </div>
               </div>
-            )}
+            )} */}
           </div>
         </div>
       </div>

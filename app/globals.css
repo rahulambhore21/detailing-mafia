@@ -3441,3 +3441,18 @@ html {
 .rhombus-btn:hover {
   background-color: #264dc7; /* lighter royal hover */
 }
+
+
+
+
+
+
+@font-face {
+  font-family: 'MyFont';
+  src: url('/fonts/font2.otf') format('otf');
+  font-weight: 400;
+}
+
+.font2{
+  font-family: 'MyFont', sans-serif;
+}
