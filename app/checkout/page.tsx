@@ -60,7 +60,7 @@ function CheckoutPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-24 pb-8 md:pb-8 pb-24">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-24 pb-24 md:pb-8">
       {/* Header */}
       <div className="max-w-7xl mx-auto px-4 mb-8">
         <div className="text-center">
