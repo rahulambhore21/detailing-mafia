@@ -5,6 +5,8 @@ import { Shield, Clock, Award } from 'lucide-react';
 import { Skiper52 } from '@/components/ui/skiper-ui/skiper52';
 import Image from 'next/image';
 import WhyChooseUs from '@/components/WhyChooseUs';
+import Testimonials from '@/components/Testimonials';
+
 const features = [
 	{
 		icon: Award,
@@ -55,66 +57,48 @@ export default function Home() {
 					fill
 					className="object-cover"
 				/>
-				<div className="absolute inset-0 flex items-center">
+				<div className="absolute inset-0 flex items-end pb-32">
 					<div className="max-w-7xl mx-auto px-4 w-full">
-						<div className="max-w-lg">
-							<div className="text-black space-y-6">
+						<div className="max-w-2xl">
+							<div className="text-black space-y-8">
 								<p className="text-lg md:text-xl leading-relaxed">
 									At Shri Krishna Automobile, we bring premium care and precision to every vehicle. With skilled technicians, modern tools, and a commitment to honest service, we ensure your car gets the attention it deserves.
 								</p>
-								<p className="text-lg md:text-xl font-semibold">
+								<p className="text-lg md:text-xl font-semibold text-blue-900">
 									Quality, trust, and performance — that's our promise. Drive with confidence, always.
 								</p>
+								<div className="flex flex-col sm:flex-row gap-4 pt-4">
+									<button className="bg-blue-900 text-white px-8 py-4 rounded-lg hover:bg-blue-800 transition-colors font-semibold">
+										Learn More About Us
+									</button>
+									<button className="border-2 border-blue-900 text-blue-900 px-8 py-4 rounded-lg hover:bg-blue-900 hover:text-white transition-colors font-semibold">
+										Our Services
+									</button>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<Skiper52 />
+			<div className='w-full relative'>
+				<Image 
+					src="/bg1.svg" 
+					alt="Background" 
+					fill
+					className="object-cover"
+				/>
+				<div className="relative z-10">
+					<Skiper52 />
+				</div>
+			</div>
 
 			{/* Why Choose Us Section */}
 			<section className='w-full h-screen'>
 				<WhyChooseUs/>
 			</section>
-			{/* <section className="py-20 bg-gradient-to-b from-white to-gray-50">
-				<div className="max-w-7xl mx-auto px-4">
-					<div className="text-center mb-16">
-						<div className="inline-block bg-blue-900 text-white px-4 py-2 rounded-full mb-4">
-							Why Choose Us
-						</div>
-						<h2 className="text-4xl md:text-5xl mb-4">
-							Excellence in every aspect of{' '}
-							<span className="text-blue-900">automotive care</span>
-						</h2>
-					</div>
-
-					<div className="grid md:grid-cols-3 gap-8">
-						{features.map((feature, index) => (
-							<FeatureCard key={index} {...feature} />
-						))}
-					</div>
-				</div>
-			</section> */}
-
+			
 			{/* Testimonials Section */}
-			<section className="py-20 bg-gradient-to-b from-gray-50 to-white">
-				<div className="max-w-7xl mx-auto px-4">
-					<div className="text-center mb-16">
-						<div className="inline-block bg-blue-900 text-white px-4 py-2 rounded-full mb-4">
-							Testimonials
-						</div>
-						<h2 className="text-4xl md:text-5xl mb-4">
-							What Our <span className="text-blue-900">Clients Say</span>
-						</h2>
-					</div>
-
-					<div className="grid md:grid-cols-3 gap-8">
-						{testimonials.map((testimonial, index) => (
-							<TestimonialCard key={index} {...testimonial} />
-						))}
-					</div>
-				</div>
-			</section>
+			<Testimonials />
 		</>
 	);
 }

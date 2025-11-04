@@ -77,44 +77,13 @@ const Skiper52 = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 bg-grid-slate-100/50 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))]" />
-
+    <section className="py-24 relative">
       <div className="max-w-7xl mx-auto px-4 relative">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-20"
-        >
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-3 rounded-full mb-6 shadow-lg shadow-blue-500/25"
-          >
-            <div className="w-2 h-2 bg-white rounded-full animate-pulse" />
-            Our Services
-          </motion.div>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-900 to-gray-900 bg-clip-text text-transparent leading-tight">
-            Professional{" "}
-            <span className="text-blue-600 relative">
-              Automotive Services
-              <motion.div
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ delay: 0.8, duration: 0.6 }}
-                className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full"
-              />
-            </span>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-blue-800 ">
+            Services
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Experience excellence in automotive care with our comprehensive range of
-            professional services
-          </p>
-        </motion.div>
-
+        </div>
         <div className="flex h-full w-full items-center justify-center overflow-hidden">
           <HoverExpand_001 images={images} />
         </div>
@@ -303,29 +272,9 @@ const HoverExpand_001 = ({
             <div className="absolute inset-0 rounded-2xl ring-2 ring-transparent group-focus:ring-blue-500 transition-all duration-200" />
           </motion.div>
         ))}
-      </div>
 
-      {/* Navigation indicators */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6, duration: 0.4 }}
-        className="flex justify-center gap-2 mt-8"
-      >
-        {images.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setActiveImage(index)}
-            className={cn(
-              "w-3 h-3 rounded-full transition-all duration-300",
-              activeImage === index
-                ? "bg-blue-600 w-8"
-                : "bg-gray-300 hover:bg-gray-400"
-            )}
-            aria-label={`Go to service ${index + 1}`}
-          />
-        ))}
-      </motion.div>
+       
+      </div>
     </motion.div>
   );
 };
