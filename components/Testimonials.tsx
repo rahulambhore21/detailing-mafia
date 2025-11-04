@@ -128,10 +128,10 @@ const TestimonialCard: React.FC = () => {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 h-full flex items-center justify-center p-4">
+        <div className="relative z-10 h-full flex items-center justify-center p-4 sm:p-6">
           <div className="max-w-6xl w-full">
             <motion.h2 
-              className="text-4xl md:text-5xl font-bold text-white text-center mb-12"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-8 sm:mb-12"
               initial={{ y: -50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -139,13 +139,13 @@ const TestimonialCard: React.FC = () => {
               Customer Testimonials
             </motion.h2>
             
-            <div className="relative h-[500px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative h-auto sm:h-[500px] md:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
               {/* Content Container */}
-              <div className="relative h-full grid grid-cols-1 md:grid-cols-2">
-                {/* Left Side - Content */}
+              <div className="relative h-full grid grid-cols-1">
+                {/* Main Content */}
                 <motion.div 
                   key={currentIndex}
-                  className="relative bg-blue-600/90 backdrop-blur-sm p-8 md:p-12 flex flex-col justify-center"
+                  className="relative bg-blue-600/90 backdrop-blur-sm p-6 sm:p-8 md:p-12 flex flex-col justify-center min-h-[400px] sm:min-h-[500px]"
                   variants={slideVariants}
                   initial="enter"
                   animate="center"
@@ -154,11 +154,11 @@ const TestimonialCard: React.FC = () => {
                   transition={{ duration: 0.6, ease: "easeInOut" }}
                 >
                   {/* Decorative dots - top right */}
-                  <div className="absolute top-8 right-8 grid grid-cols-3 gap-2">
+                  <div className="absolute top-4 sm:top-8 right-4 sm:right-8 grid grid-cols-3 gap-1 sm:gap-2">
                     {[...Array(9)].map((_, i) => (
                       <motion.div 
                         key={i} 
-                        className="w-2 h-2 bg-white/40 rounded-full"
+                        className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white/40 rounded-full"
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
                         transition={{ delay: i * 0.1, duration: 0.3 }}
@@ -168,7 +168,7 @@ const TestimonialCard: React.FC = () => {
 
                   {/* Stars */}
                   <motion.div 
-                    className="flex gap-1 mb-6"
+                    className="flex gap-1 mb-4 sm:mb-6 justify-center sm:justify-start"
                     initial={{ x: -50, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
@@ -180,14 +180,14 @@ const TestimonialCard: React.FC = () => {
                         animate={{ rotate: 0, opacity: 1 }}
                         transition={{ delay: i * 0.1 + 0.3, duration: 0.4 }}
                       >
-                        <Star className="w-8 h-8 fill-yellow-400 text-yellow-400" />
+                        <Star className="w-6 h-6 sm:w-8 sm:h-8 fill-yellow-400 text-yellow-400" />
                       </motion.div>
                     ))}
                   </motion.div>
 
                   {/* Testimonial Text */}
                   <motion.blockquote 
-                    className="text-white text-lg md:text-xl leading-relaxed mb-8"
+                    className="text-white text-base sm:text-lg md:text-xl leading-relaxed mb-6 sm:mb-8 text-center sm:text-left"
                     initial={{ y: 30, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.4 }}
@@ -197,7 +197,7 @@ const TestimonialCard: React.FC = () => {
 
                   {/* Author Info */}
                   <motion.div 
-                    className="flex items-center gap-4"
+                    className="flex items-center gap-4 justify-center sm:justify-start"
                     initial={{ x: -30, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.6 }}
@@ -205,47 +205,39 @@ const TestimonialCard: React.FC = () => {
                     <motion.img 
                       src={current.image}
                       alt={current.author}
-                      className="w-16 h-16 rounded-full object-cover border-2 border-white"
+                      className="w-12 h-12 sm:w-16 sm:h-16 rounded-full object-cover border-2 border-white"
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
                       transition={{ duration: 0.4, delay: 0.7 }}
                     />
-                    <div>
-                      <h3 className="text-white font-bold text-lg">{current.author}</h3>
+                    <div className="text-center sm:text-left">
+                      <h3 className="text-white font-bold text-base sm:text-lg">{current.author}</h3>
                       <p className="text-white/80 text-sm">{current.role}</p>
                     </div>
                   </motion.div>
 
                   {/* Navigation Dots */}
-                  <div className="mt-8 flex gap-3">
+                  <div className="mt-6 sm:mt-8 flex gap-3 justify-center sm:justify-start">
                     {testimonials.map((_, index) => (
                       <motion.div
                         key={index}
-                        className={`h-3 rounded-full transition-all ${
+                        className={`h-2 sm:h-3 rounded-full transition-all ${
                           index === currentIndex 
-                            ? 'bg-yellow-400 w-8' 
-                            : 'bg-white/40 w-3'
+                            ? 'bg-yellow-400 w-6 sm:w-8' 
+                            : 'bg-white/40 w-2 sm:w-3'
                         }`}
                         layoutId={`dot-${index}`}
                         transition={{ duration: 0.3 }}
                       />
                     ))}
                   </div>
-                </motion.div>
 
-                {/* Right Side - Car silhouette or decorative element */}
-                <motion.div 
-                  className="relative hidden md:block"
-                  initial={{ x: 50, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.8 }}
-                >
-                  {/* Decorative dots - bottom right */}
-                  <div className="absolute bottom-8 right-8 grid grid-cols-3 gap-2">
+                  {/* Decorative dots - bottom right (desktop only) */}
+                  <div className="absolute bottom-4 sm:bottom-8 right-4 sm:right-8 hidden sm:grid grid-cols-3 gap-1 sm:gap-2">
                     {[...Array(9)].map((_, i) => (
                       <motion.div 
                         key={i} 
-                        className="w-2 h-2 bg-yellow-400 rounded-full"
+                        className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-400 rounded-full"
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
                         transition={{ delay: i * 0.1 + 0.9, duration: 0.3 }}
@@ -260,15 +252,15 @@ const TestimonialCard: React.FC = () => {
 
         {/* Scroll indicator */}
         <motion.div 
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1 }}
         >
-          <div className="text-white text-sm text-center">
+          <div className="text-white text-xs sm:text-sm text-center">
             <div className="mb-2">Scroll to see more testimonials</div>
             <motion.div 
-              className="w-1 h-8 bg-white/60 rounded-full mx-auto"
+              className="w-1 h-6 sm:h-8 bg-white/60 rounded-full mx-auto"
               animate={{ scaleY: [1, 0.5, 1] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             />

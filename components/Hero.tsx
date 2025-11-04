@@ -20,7 +20,7 @@ export function Hero({
   const router = useRouter();
 
   return (
-    <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-24 sm:pt-32 pb-12 sm:pb-20 overflow-hidden">
       {/* Background video */}
       <div className="absolute inset-0 z-0">
         <video
@@ -34,10 +34,10 @@ export function Hero({
         </video>
       </div>
 
-      <div className="relative z-20 max-w-7xl mx-auto px-4 w-full">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex flex-col items-center text-center text-white">
           {/* Main Title */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl mb-12 font2 max-w-4xl">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-8 sm:mb-12 font2 max-w-4xl leading-tight">
             {title.includes('Auto Care Experts') ? (
               <>Your Trusted <span className="text-blue-400">Auto Care Experts</span></>
             ) : (
@@ -46,15 +46,15 @@ export function Hero({
           </h1>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full max-w-md sm:max-w-none">
             <button 
-              className="rhombus-btn px-8 py-4 text-lg font-semibold"
+              className="rhombus-btn px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold w-full sm:w-auto"
               onClick={() => router.push('/booking')}
             >
               Book Appointment
             </button>
             <button 
-              className="rhombus-btn px-8 py-4 text-lg font-semibold"
+              className="rhombus-btn px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold w-full sm:w-auto"
               onClick={() => window.open('tel:+1234567890')}
             >
               Call Us Now

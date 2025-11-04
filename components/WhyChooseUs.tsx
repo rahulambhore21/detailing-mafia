@@ -52,79 +52,73 @@ const WhyChooseUs: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-100 py-12 px-4">
+    <div className="min-h-screen bg-gray-100 py-8 sm:py-12 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold mb-2">
+        <div className="text-center mb-8 sm:mb-12">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">
             You like it <span className="text-blue-600">Clean?</span>
           </h1>
-          <h2 className="text-5xl font-bold">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
             We like it <span className="text-blue-600">Dirty!</span>
           </h2>
         </div>
 
-        {/* Main Content Grid */}
-        <div className="relative min-h-[80vh]">
-          {/* Right Side Background Splash - Wedge Cut */}
-          {/* <div className="absolute right-0 top-0 w-3/5 h-full bg-amber-500 z-0" style={{clipPath: 'polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%)'}}></div> */}
-
-          {/* Full Background Image */}
-          <div className="absolute inset-0 flex items-end justify-center pb-16">
-            <Image
-              src="/car3.png" 
-              alt="Luxury Car" 
-              width={1000} 
-              height={1000}
-              className="w-full h-full object-contain"
-            />
-          </div>
-
-          {/* Left Features */}
-          <div className="absolute left-0 bottom-20 top-0 w-1/4 space-y-4 z-10">
+        {/* Features Grid */}
+        <div className="grid gap-6 lg:gap-10 lg:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)] items-center">
+          <div className="order-2 lg:order-1 space-y-4">
             {leftFeatures.map((feature, index) => (
               <motion.div
                 key={index}
-                initial={{ x: -200, opacity: 0 }}
+                initial={{ x: -100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 viewport={{ once: true, amount: 0.3 }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: index * 0.2,
-                  ease: "easeOut"
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.15,
+                  ease: "easeOut",
                 }}
-                className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6 rounded-lg shadow-lg h-32"
+                className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-4 sm:p-6 rounded-lg shadow-lg"
               >
-                <div className="flex items-center justify-between h-full">
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold italic mb-2">{feature.title}</h3>
+                <div className="flex items-center gap-4">
+                  <feature.icon className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 flex-shrink-0" strokeWidth={1.5} />
+                  <div className="text-left">
+                    <h3 className="text-lg sm:text-xl font-bold italic mb-2">{feature.title}</h3>
                     <p className="text-sm leading-relaxed">{feature.description}</p>
                   </div>
-                  <feature.icon className="w-12 h-12 ml-4 flex-shrink-0" strokeWidth={1.5} />
                 </div>
               </motion.div>
             ))}
           </div>
 
-          {/* Right Features */}
-          <div className="absolute right-0 bottom-20 top-0 w-1/4 space-y-4 z-10">
+          <div className="order-1 lg:order-2 flex justify-center">
+            <Image
+              src="/car3.png"
+              alt="Luxury Car"
+              width={1000}
+              height={1000}
+              className="w-full max-w-xs sm:max-w-md lg:max-w-xl h-auto object-contain"
+            />
+          </div>
+
+          <div className="order-3 space-y-4">
             {rightFeatures.map((feature, index) => (
               <motion.div
                 key={index}
-                initial={{ x: 200, opacity: 0 }}
+                initial={{ x: 100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 viewport={{ once: true, amount: 0.3 }}
-                transition={{ 
-                  duration: 0.6, 
-                  delay: index * 0.2,
-                  ease: "easeOut"
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.15,
+                  ease: "easeOut",
                 }}
-                className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-6 rounded-lg shadow-lg h-32"
+                className="bg-gradient-to-r from-blue-600 to-blue-800 text-white p-4 sm:p-6 rounded-lg shadow-lg"
               >
-                <div className="flex items-center justify-between h-full">
-                  <feature.icon className="w-12 h-12 mr-4 flex-shrink-0" strokeWidth={1.5} />
-                  <div className="flex-1 text-right">
-                    <h3 className="text-2xl font-bold italic mb-2">{feature.title}</h3>
+                <div className="flex items-center gap-4 lg:flex-row-reverse">
+                  <feature.icon className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 flex-shrink-0" strokeWidth={1.5} />
+                  <div className="text-left lg:text-right">
+                    <h3 className="text-lg sm:text-xl font-bold italic mb-2">{feature.title}</h3>
                     <p className="text-sm leading-relaxed">{feature.description}</p>
                   </div>
                 </div>
