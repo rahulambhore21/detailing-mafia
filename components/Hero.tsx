@@ -1,5 +1,4 @@
 "use client";
-
 import { useRouter } from "next/navigation";
 
 interface HeroProps {
@@ -30,7 +29,7 @@ export function Hero({
           loop
           playsInline
         >
-          <source src="/videoplayback.mp4" type="video/mp4" />
+          <source src="/videos/video2.mp4" type="video/mp4" />
         </video>
       </div>
 

@@ -8,27 +8,36 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 
 import { cn } from "@/lib/utils";
+import { servicesData } from "@/data/servicesData";
 
 interface ServiceImage {
   src: string;
   alt: string;
   code: string;
   description?: string;
+  serviceTitle: string; // Add this to match servicesData keys
 }
 
-const Skiper52 = () => {
+interface Skiper52Props {
+  onServiceClick?: (serviceTitle: string) => void;
+}
+
+const Skiper52 = ({ onServiceClick }: Skiper52Props) => {
+  // Create images array from servicesData
   const images: ServiceImage[] = [
     {
       src: "/engine diagnose.jpg",
       alt: "Engine Diagnostics",
       code: "Engine Diagnostics",
+      serviceTitle: "Engine Diagnostics",
       description:
         "Advanced computer diagnostics to identify engine issues quickly and accurately",
     },
     {
       src: "/Oil Change & Maintenance.jpg",
-      alt: "Oil Change Service",
-      code: "Oil Change Service",
+      alt: "Oil Change & Maintenance",
+      code: "Oil Change",
+      serviceTitle: "Oil Change & Maintenance",
       description:
         "Regular maintenance to keep your engine running smoothly and efficiently",
     },
@@ -36,45 +45,58 @@ const Skiper52 = () => {
       src: "/General Repairs.jpg",
       alt: "General Repairs",
       code: "General Repairs",
+      serviceTitle: "General Repairs",
       description: "Comprehensive automotive repair services for all makes and models",
     },
     {
       src: "/Electrical Systems.jpg",
       alt: "Electrical Systems",
-      code: "Electrical Systems",
+      code: "Electrical",
+      serviceTitle: "Electrical Systems",
       description: "Expert electrical system diagnostics and repair services",
     },
     {
-      src: "/engine diagnose.jpg",
-      alt: "Brake Repair Service",
-      code: "Brake Repair",
+      src: "/Brake Services.jpg",
+      alt: "Brake Services",
+      code: "Brake Services",
+      serviceTitle: "Brake Services",
       description: "Safety-first brake inspection, repair, and replacement services",
     },
     {
-      src: "/Oil Change & Maintenance.jpg",
+      src: "/Tire Services.jpg",
       alt: "Tire Services",
-      code: "Tire Service",
+      code: "Tire Services",
+      serviceTitle: "Tire Services",
       description: "Complete tire services including installation, balancing, and alignment",
     },
     {
-      src: "/General Repairs.jpg",
-      alt: "Transmission Repair",
+      src: "/Transmission Service.jpg",
+      alt: "Transmission Service",
       code: "Transmission",
+      serviceTitle: "Transmission Service",
       description: "Specialized transmission diagnostics, repair, and maintenance",
     },
     {
-      src: "/Electrical Systems.jpg",
-      alt: "AC Repair Service",
-      code: "AC Repair",
+      src: "/AC & Heating.jpg",
+      alt: "AC & Heating",
+      code: "AC & Heating",
+      serviceTitle: "AC & Heating",
       description: "Climate control system repair and maintenance for year-round comfort",
     },
     {
-      src: "/engine diagnose.jpg",
-      alt: "Battery Replacement",
-      code: "Battery",
-      description: "Battery testing, replacement, and electrical system checks",
+      src: "/Detailing Services.jpg",
+      alt: "Detailing Services",
+      code: "Detailing",
+      serviceTitle: "Detailing Services",
+      description: "Professional car detailing to restore your vehicle's showroom shine",
     },
   ];
+
+  const handleCardClick = (serviceTitle: string) => {
+    if (onServiceClick) {
+      onServiceClick(serviceTitle);
+    }
+  };
 
   return (
     <section className="py-24 relative">
@@ -85,7 +107,7 @@ const Skiper52 = () => {
           </h2>
         </div>
         <div className="flex h-full w-full items-center justify-center overflow-hidden">
-          <HoverExpand_001 images={images} />
+          <HoverExpand_001 images={images} onCardClick={handleCardClick} />
         </div>
       </div>
     </section>
@@ -97,9 +119,11 @@ export { Skiper52 };
 const HoverExpand_001 = ({
   images,
   className,
+  onCardClick,
 }: {
   images: ServiceImage[];
   className?: string;
+  onCardClick: (serviceTitle: string) => void;
 }) => {
   const [activeImage, setActiveImage] = useState<number>(1);
 
@@ -162,7 +186,10 @@ const HoverExpand_001 = ({
               scale: activeImage === index ? 1.03 : 1,
               y: activeImage === index ? -4 : -2,
             }}
-            onClick={() => handleImageClick(index)}
+            onClick={() => {
+              handleImageClick(index);
+              onCardClick(image.serviceTitle); // Use serviceTitle for navigation
+            }}
             onKeyDown={(e) => handleKeyDown(e, index)}
             tabIndex={0}
             role="button"
@@ -228,6 +255,10 @@ const HoverExpand_001 = ({
                     transition={{ delay: 0.4, duration: 0.4 }}
                     whileHover={{ scale: 1.05, x: 5 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onCardClick(image.serviceTitle);
+                    }}
                     className="inline-flex items-center gap-2 bg-white text-blue-900 px-6 py-3 rounded-full font-semibold text-sm hover:bg-blue-50 transition-colors shadow-lg"
                   >
                     Learn More
@@ -272,8 +303,6 @@ const HoverExpand_001 = ({
             <div className="absolute inset-0 rounded-2xl ring-2 ring-transparent group-focus:ring-blue-500 transition-all duration-200" />
           </motion.div>
         ))}
-
-       
       </div>
     </motion.div>
   );

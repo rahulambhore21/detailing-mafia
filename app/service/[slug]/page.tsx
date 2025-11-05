@@ -3,6 +3,7 @@
 import { CheckCircle, Phone } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useParams } from 'next/navigation';
+import { useEffect } from 'react';
 import { servicesData } from '../../../data/servicesData';
 import { slugToTitle } from '../../../lib/utils';
 
@@ -18,8 +19,14 @@ function ServiceDetailPage() {
   const serviceData = servicesData[serviceTitle];
 
   // If service not found, redirect to services page
+  useEffect(() => {
+    if (!serviceData) {
+      router.push('/services');
+    }
+  }, [serviceData, router]);
+
+  // If service not found, show loading or placeholder
   if (!serviceData) {
-    router.push('/services');
     return (
       <div className="pt-32 bg-white min-h-screen flex items-center justify-center">
         <div className="text-center">
