@@ -42,10 +42,10 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 shadow-lg">
+    <nav className="fixed top-0 left-0 right-0 z-50 shadow-lg overflow-hidden w-screen max-w-full">
       {/* --- Top Bar --- */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white text-xs sm:text-sm">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 py-2 flex items-center justify-between">
+      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white text-xs sm:text-sm overflow-hidden w-full">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 py-2 flex items-center justify-between min-w-0 w-full">
           <div className="flex items-center gap-2">
             <Phone className="w-3 h-3 sm:w-4 sm:h-4" />
             <span className="hidden sm:inline">+91 80-100-44000</span>
@@ -74,21 +74,21 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
       </div>
 
       {/* --- Main Navbar --- */}
-      <div className="bg-black/40 backdrop-blur-sm">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 flex items-center justify-between h-16 sm:h-20">
+      <div className="bg-black/40 backdrop-blur-sm overflow-hidden w-full">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 flex items-center justify-between h-16 sm:h-20 min-w-0 w-full">
           {/* Logo */}
           <div
             onClick={() => onNavigate("home")}
-            className="cursor-pointer flex items-center"
+            className="cursor-pointer flex items-center flex-shrink-0"
           >
-            <div className="relative h-16 sm:h-20 px-4 sm:px-6 flex items-center bg-black/25 transform -skew-x-12">
+            <div className="relative h-16 sm:h-20 px-2 sm:px-4 flex items-center bg-black/25 transform -skew-x-12">
               <div className="absolute inset-0 bg-black/30 -skew-x-12"></div>
               <div className="relative z-10 skew-x-12">
                 <Image
                   src={logoImage}
                   alt="Logo"
-                  height={40}
-                  width={120}
+                  height={30}
+                  width={90}
                   className="sm:h-[60px] sm:w-[160px] object-contain"
                   priority
                 />
@@ -143,8 +143,8 @@ export function Navbar({ currentPage, onNavigate }: NavbarProps) {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden bg-gradient-to-r from-blue-600 to-blue-800 backdrop-blur-md py-4 border-t border-blue-800">
-            <div className="flex flex-col gap-2 px-4 sm:px-6">
+          <div className="lg:hidden bg-gradient-to-r from-blue-600 to-blue-800 backdrop-blur-md py-4 border-t border-blue-800 overflow-hidden w-full">
+            <div className="flex flex-col gap-2 px-4 sm:px-6 w-full">
               { [
                 { label: "Home", key: "home" },
                 { label: "About", key: "about" },
