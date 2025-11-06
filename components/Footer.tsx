@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Twitter, Youtube, MapPin, Phone, Mail } from 'lucide-react';
+import Image from 'next/image';
 
 interface FooterProps {
   onNavigate: (page: 'home' | 'about' | 'services' | 'service-detail' | 'experience' | 'blog' | 'contact' | 'booking', serviceTitle?: string) => void;
@@ -6,8 +7,18 @@ interface FooterProps {
 
 export function Footer({ onNavigate }: FooterProps) {
   return (
-    <footer className="bg-black text-white border-t border-blue-900/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <footer className="bg-black text-white border-t border-blue-900/20 relative">
+      {/* Background Image */}
+      <Image
+        src="/images/footerbg.jpg"
+        alt="Footer background"
+        fill
+        className="object-cover"
+        priority={false}
+      />
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 z-10"></div>
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-8 sm:mb-12">
           {/* Company info */}
           <div className="sm:col-span-2 lg:col-span-1">

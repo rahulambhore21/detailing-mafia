@@ -117,7 +117,7 @@ function About() {
             {
               title: "Quality Guarantee",
               desc: "Every service comes with our satisfaction guarantee, ensuring your complete confidence in our work.",
-              image: "/images/car6.png"
+              image: "/images/quagua.png"
             }].map((card, index) => (
               <div key={index} className="bg-blue-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-700 overflow-hidden">
                 <div className="grid grid-cols-2 gap-0 h-48">
@@ -163,9 +163,9 @@ function About() {
                 Our meticulous attention to detail extends to every surface, ensuring your interior receives the same premium care as your exterior. Professional-grade products and techniques preserve value while enhancing the driving experience you deserve.
               </p>
             </div>
-            <div className="mr-30">
+            <div className="">
               <Image 
-                src="/images/car6.png" 
+                src="/images/car8.png" 
                 alt="Premium Car Detailing Benefits"
                 width={500}
                 height={340}
